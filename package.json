@@ -1,0 +1,28 @@
+{
+  "name": "deepl-po-translate",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "bin": {
+    "uffo/deepl-po-translate": "bin/deepl-po-translate",
+    "deepl-po-translate": "bin/deepl-po-translate"
+  },
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "cli",
+    "deepl",
+    ".po",
+    "translate"
+  ],
+  "author": "Vasil Enchev",
+  "dependencies": {
+    "esm": "3.2.25",
+    "gettext-parser": "^4.0.4",
+    "inquirer": "^8.0.0"
+  }
+}
