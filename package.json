@@ -21,6 +21,9 @@
   ],
   "author": "Vasil Enchev",
   "dependencies": {
+    "axios": "^0.21.1",
+    "commander": "^7.2.0",
+    "console-progress-bar": "^1.0.5",
     "esm": "3.2.25",
     "gettext-parser": "^4.0.4",
     "inquirer": "^8.0.0"

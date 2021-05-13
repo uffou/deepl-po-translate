@@ -21,6 +21,18 @@ ansi-styles@^4.1.0:
   dependencies:
     color-convert "^2.0.1"
 
+axios@^0.21.1:
+  version "0.21.1"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
+  integrity sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
+  dependencies:
+    follow-redirects "^1.10.0"
+
+ccolor@^1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/ccolor/-/ccolor-1.3.1.tgz#ec8702a6ab30a220032d3495dc780d9db55a46b7"
+  integrity sha512-tx/RXt+InslKygmQwfO1MKqycfSebGP8Jk4LnQ20ztwKvy6oI6B6LvWtfB1Nx1nGh0uQABxVObF7R4lxBeWWVg==
+
 chalk@^4.1.0:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.1.tgz#c80b3fab28bf6371e6863325eee67e618b77e6ad"
@@ -57,6 +69,18 @@ color-name@~1.1.4:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/color-name/-/color-name-1.1.4.tgz#c2a09a87acbde69543de6f63fa3995c826c536a2"
   integrity sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==
+
+commander@^7.2.0:
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-7.2.0.tgz#a36cb57d0b501ce108e4d20559a150a391d97ab7"
+  integrity sha512-QrWXB+ZQSVPmIWIhtEO9H+gwHaMGYiF5ChvoJ+K9ZGHG/sVsa6yiesAD1GC/x46sET00Xlwo1u49RVVVzvcSkw==
+
+console-progress-bar@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/console-progress-bar/-/console-progress-bar-1.0.5.tgz#6f6afaa60774d3d1c9ecda9d1f94e69c6f3e32a0"
+  integrity sha512-hYlx647UYDhjf84ku0H/f8J+jrHrLO/M5Nblnbr2CP+gG78wQ985mnfaeWggiqBFn+Z+HWMsdKySX2S8z0aA8Q==
+  dependencies:
+    ccolor "^1.3.1"
 
 content-type@^1.0.4:
   version "1.0.4"
@@ -100,6 +124,11 @@ figures@^3.0.0:
   integrity sha512-yaduQFRKLXYOGgEn6AZau90j3ggSOyiqXU0F9JZfeXYhNa+Jk4X+s45A2zg5jns87GAFa34BBm2kXw4XpNcbdg==
   dependencies:
     escape-string-regexp "^1.0.5"
+
+follow-redirects@^1.10.0:
+  version "1.14.1"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.1.tgz#d9114ded0a1cfdd334e164e6662ad02bfd91ff43"
+  integrity sha512-HWqDgT7ZEkqRzBvc2s64vSZ/hfOceEol3ac/7tKwzuvEyWx3/4UegXh5oBOIotkGsObyk3xznnSRVADBgWSQVg==
 
 gettext-parser@^4.0.4:
   version "4.0.4"
