@@ -16,7 +16,7 @@ program
   .option('-d, --debug', 'output extra debugging')
   .option('-a, --api <api>', 'free or paid api')
   .option('-k, --auth-key <auth_key>', 'auth_key')
-  .option('-l, --po-file-path <target_lang>', '.po File Path')
+  .option('-f, --po-file-path <po_file_path>', '.po File Path')
   .option('-l, --target-lang <target_lang>', 'Target language')
 
 program.parse(process.argv);
@@ -73,6 +73,7 @@ async function parseAndTranslate(){
     console.log(cwd)
 
     const poFilePath = options.poFilePath || (answers && answers.poFilePath)
+    console.log(answers)
     if(!existsSync(poFilePath)) throw 'PO file not found!'
 
     const deepl = new DeepL(options.authKey, options.targetLang)
