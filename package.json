@@ -7,7 +7,10 @@
     "deepl-po-translate": "bin/deepl-po-translate"
   },
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "start.app": "yarn start --po-directory-path ~/Repos/ora-frontend/app/locales/",
+    "start.landing": "yarn start --po-directory-path ~/Repos/ora-landing-next/locale/",
+    "start.mobile": "yarn start --po-directory-path ~/Repos/ora-mobile/src/locales/"
   },
   "license": "MIT",
   "publishConfig": {
@@ -24,6 +27,7 @@
     "axios": "^0.21.1",
     "commander": "^7.2.0",
     "console-progress-bar": "^1.0.5",
+    "dotenv": "^16.0.3",
     "esm": "3.2.25",
     "gettext-parser": "^4.0.4",
     "inquirer": "^8.0.0"

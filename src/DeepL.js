@@ -3,7 +3,7 @@ const axios = require('axios')
 class DeepL {
     constructor( auth_key, target_lang, free = true ){
         this.auth_key = auth_key
-        this.target_lang = target_lang
+        this.target_lang = target_lang === 'zh-Hans' ? 'zh' : target_lang
         this.api = free ? 'https://api-free.deepl.com/v2/' : 'https://api.deepl.com/v2/'
     }
 
@@ -38,10 +38,10 @@ class DeepL {
 
           return axios(config)
           .then(function (response) {
-            console.log(JSON.stringify(response.data));
+            console.log('\n'+ JSON.stringify(response.data));
           })
           .catch(function (error) {
-            console.log(error);
+                console.error(error);
           });
 
     }
