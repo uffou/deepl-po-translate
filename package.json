@@ -1,9 +1,8 @@
 {
   "name": "deepl-po-translate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "src/index.js",
   "bin": {
-    "uffo/deepl-po-translate": "bin/deepl-po-translate",
     "deepl-po-translate": "bin/deepl-po-translate"
   },
   "scripts": {
