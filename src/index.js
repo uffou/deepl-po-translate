@@ -15,7 +15,7 @@ function welcome() {
 
 program
   .option('-d, --debug', 'output extra debugging')
-  .option('-a, --api <api>', 'free or paid api')
+  .option('-p, --paid-api <paidApi>', 'if to use paid api')
   .option('-k, --auth-key <auth_key>', 'auth_key')
   .option('-f, --po-file-path <po_file_path>', '.po File Path')
   .option('-d, --po-directory-path <po_directory_path>', '.po Folders Path')
@@ -34,34 +34,37 @@ if (options.poDirectoryPath) console.log(options.poDirectoryPath);
 const debug = options.debug ? console.log : noop
 
 welcome()
-if(options)
-inquirer.prompt([
-    { type: 'list', message: "Free or paid api?", name:'api',choices:[
-        "DeepL Free API (api-free.deepl.com)",
-        "DeepL Paid API (api.deepl.com)"
-    ]},
-    // {
-    //     type:'input',
-    //     message: 'auth_key',
-    //     name: 'authKey',
-    // },
-    // {
-    //     type:'input',
-    //     message: 'Source File Path',
-    //     name: 'poFilePath',
-    // },
-    // {
-    //     type:'input',
-    //     message: 'Target language',
-    //     name: 'targetLang',
-    // },
-
-]).then(answers => {
-    answers = answers
-
-    if(answers) console.log(answers)
+if(options.authKey || options.poFilePath || options.poDirectoryPath){
     parseAndTranslate()
-})
+}else {
+    inquirer.prompt([
+        { type: 'list', message: "Free or paid api?", name:'paidApi', choices:[
+            "DeepL Free API (api-free.deepl.com)",
+            "DeepL Paid API (api.deepl.com)"
+        ]},
+        {
+            type:'input',
+            message: 'auth_key',
+            name: 'authKey',
+        },
+        {
+            type:'input',
+            message: 'Source File Path',
+            name: 'poFilePath',
+        },
+        {
+            type:'input',
+            message: 'Target language',
+            name: 'targetLang',
+        },
+    
+    ]).then(answers => {
+        answers = answers
+    
+        if(answers) console.log(answers)
+        parseAndTranslate()
+    })
+}
 
 function escapeString(string){
     return string.replace(/{(.*)}/gm, '<NoTrans>$&</NoTrans>')
@@ -70,11 +73,12 @@ function unescapeString(string){
     return string.replace(/<NoTrans>/gm, '').replace(/<\/NoTrans>/gm, '')
 
 }
-async function parseAndTranslate(){
+async function parseAndTranslate(answers){
     const cwd = process.cwd()
     const poDirectoryPath = options.poDirectoryPath || (answers && answers.poDirectoryPath)
     
-    const targetLang = options.targetLang || process.env.targetLang
+    const targetLang = options.targetLang || process.env.poTransTargetLang
+    if(!targetLang) throw 'Target lang not provided. use --target-lang or .env.poTransTargetLang'
     const languages = targetLang.includes(',') ? targetLang.split(",") : [targetLang]
     for(const language of languages){
         const poFilePath = poDirectoryPath
@@ -85,7 +89,9 @@ async function parseAndTranslate(){
             console.log('poFilePath: ', poFilePath)
             throw 'PO file not found!'
         }
-        const deepl = new DeepL(options.authKey || process.env.authKey, language)
+        if(!(options.authKey || process.env.deeplAuthKey)) throw 'authKey not provided. use --auth-key or .env.deeplAuthKey'
+        const free = !options.paidApi
+        const deepl = new DeepL(options.authKey || process.env.deeplAuthKey, language, free)
 
         var input = readFileSync(poFilePath)
         var po = gettextParser.po.parse(input)

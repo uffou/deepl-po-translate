@@ -1,7 +1,7 @@
 const axios = require('axios')
 
 class DeepL {
-    constructor( auth_key, target_lang, free = true ){
+    constructor( auth_key, target_lang, free ){
         this.auth_key = auth_key
         this.target_lang = target_lang === 'zh-Hans' ? 'zh' : target_lang
         this.api = free ? 'https://api-free.deepl.com/v2/' : 'https://api.deepl.com/v2/'
