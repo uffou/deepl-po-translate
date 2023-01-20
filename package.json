@@ -1,6 +1,6 @@
 {
   "name": "deepl-po-translate",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "src/index.js",
   "bin": {
     "deepl-po-translate": "bin/deepl-po-translate"
@@ -11,6 +11,10 @@
     "start.landing": "yarn start --po-directory-path ~/Repos/ora-landing-next/locale/",
     "start.mobile": "yarn start --po-directory-path ~/Repos/ora-mobile/src/locales/"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uffou/deepl-po-translate.git"
+  },
   "license": "MIT",
   "publishConfig": {
     "access": "public"
@@ -19,7 +23,11 @@
     "cli",
     "deepl",
     ".po",
-    "translate"
+    "translate",
+    "localazy",
+    "lingui",
+    "lingui.js",
+    "ora.pm"
   ],
   "author": "Vasil Enchev",
   "dependencies": {
